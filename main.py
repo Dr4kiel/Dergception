@@ -19,7 +19,7 @@ Génération d'un réseau de neurones permettant d'identifier des images (500x50
 - 1 couche de sortie (1 neurone)
 
 input_data : matrice de données d'entrée (250 000 colonnes) (1 ligne = 1 image)
-output_data : matrice de données de sortie (1 colonne) (1 ligne = 1 image)
+output_data : matrice de données de sortie (1 colonne) (1 ligne = 1 image) (1 si l'image est un dragon, 0 sinon)
 
 '''
 
