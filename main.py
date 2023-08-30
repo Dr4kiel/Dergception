@@ -11,6 +11,7 @@ import numpy as np
 # Importation des entités
 from entity.Network import Network
 from entity.Layer import Layer
+import os
 
 '''
 Génération d'un réseau de neurones permettant d'identifier des images (500x500 pixels) :
@@ -49,11 +50,13 @@ Entraînement du réseau
 '''
 
 # Importation des données d'entraînement
-input_data = np.loadtxt("data/input_data.txt")
-output_data = np.loadtxt("data/output_data.txt")
+input_data = []
+for filename in os.listdir("data/input_data"):
+    input_data.append(np.loadtxt("data/input_data/" + filename))
+output_data = np.matrix(np.loadtxt("data/output_data.txt")).T
 
 # Entraînement du réseau
-network.train(input_data, output_data, 1000)
+network.train(input_data, output_data, 5)
 
 # Exportation des poids du réseau
 network.export("data/network.txt")
@@ -68,6 +71,10 @@ image = np.loadtxt("data/image.txt")
 # Identification de l'image
 print(network.predict(image))
 
+
 '''
+Résultats attendus :
+- 0.9999999999999999
+
 Fin du programme
 '''

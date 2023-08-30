@@ -22,7 +22,7 @@ class Layer:
                 if self.values[i] == 0:
                     self.values[i] = 0.0000000000000001
                 # if next_layer is an array, then it's the output layer
-                if isinstance(next_layer, np.ndarray):
+                if not isinstance(next_layer, Layer):
                     self.weights[i][j] += 0.1 * self.values[i] * \
                         (1 - self.values[i]) * (next_layer[i] - self.values[i])
                 # else, it's the next layer
